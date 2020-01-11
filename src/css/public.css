@@ -1,0 +1,25 @@
+a {
+    text-decoration: none;
+}
+
+.tab-item {
+    color: #00bff6;
+}
+
+.router-link-active-heyzqt {
+    color: orange !important;
+    background-color: pink;
+}
+
+.container {
+    padding-top: 40px;
+    padding-bottom: 55px;
+}
+
+.bottom-bar {
+    display: flex;
+}
+
+.tab-item {
+    flex: 1;
+}

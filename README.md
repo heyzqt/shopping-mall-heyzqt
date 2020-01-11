@@ -1,3 +1,9 @@
+# 知识点总结
+
++ mint-ui的使用
++ router-link点击事件无效的原因和解决办法
++ vue 引入图片，img动态修改图片的办法
+
 # shopping-mall-heyzqt
 
 > A Vue.js project
