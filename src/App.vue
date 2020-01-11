@@ -1,8 +1,15 @@
 <template>
   <div>
+
+    <!-- title bar -->
     <mt-header fixed title="新闻页练手项目"></mt-header>
+
+    <!-- main content -->
     <div class="container">
+      <router-view></router-view>
     </div>
+
+    <!-- bottom bar -->
     <mt-tabbar class="bottom-bar">
       <router-link to="/home" class="tab-item" @click.native="chooseIndicator('home')">
         <mt-tab-item>
