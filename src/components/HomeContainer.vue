@@ -55,7 +55,7 @@ img {
     .box {
         flex: 1;
         // background-color: olivedrab;
-        text-align: center;  //todo 为什么使用这个属性图片也会居中
+        text-align: center;  //text-align可以设置图片文字的对齐方式
 
         img {
             width: 60px;

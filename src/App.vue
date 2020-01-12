@@ -39,11 +39,14 @@
   </div>
 </template>
 <style lang="scss">
-@import "./css/public.css";
+@import "./css/public.scss";
 .app-container {
   overflow: hidden;
 }
+
+// 右进左出
 .v-enter {
+  opacity: 0;
   transform: translateX(100%);
 }
 .v-leave-to {
@@ -51,6 +54,17 @@
   transform: translateX(-100%);
   position: absolute;
 }
+
+// 左进右出
+// .v-enter {
+//   opacity: 0;
+//   transform: translateX(-100%);
+// }
+// .v-leave-to {
+//   opacity: 0;
+//   transform: translateX(100%);
+//   position: absolute;
+// }
 
 .v-enter-active,
 .v-leave-active {
