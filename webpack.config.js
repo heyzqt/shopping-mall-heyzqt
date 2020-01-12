@@ -1,5 +1,11 @@
 var path = require('path')
 var webpack = require('webpack')
+// 引入各个文件
+// const express = require('express')
+// const app = express()
+// const router = express.Router()
+// const goodListData = require('./src/mock/banner.json')
+// app.use('/api', router)
 
 module.exports = {
   entry: './src/main.js',
@@ -49,6 +55,21 @@ module.exports = {
     historyApiFallback: true,
     noInfo: true,
     overlay: true
+    // proxy:{
+    //   '/': {
+    //     target: 'http://localhost:8080',
+    //     changeOrigin: true
+    //   }
+    // }
+    // proxy: {
+    //   "/api": {
+    //     target: "http://localhost:8080",
+    //     changeOrigin: true, //设置这个参数避免跨域
+    //     pathRewrite: {
+    //       "^/api": '/mock'
+    //     }
+    //   }
+    // }
   },
   performance: {
     hints: false
@@ -60,6 +81,20 @@ module.exports = {
       jQuery: "jquery"
     })
   ]
+  // dev: {
+  //   assetsSubDirectory: 'static',
+  //   assetsPublicPath: '/',
+  //   proxyTable: {
+  //     '/api': {
+  //       target: 'http://localhost:8088',
+  //       pathRewrite: {
+  //         '^/api': '/static/mock'
+  //       }
+  //     }
+  //   },
+  //   host: 'localhost',
+  //   port: 8088
+  // }
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -82,3 +117,14 @@ if (process.env.NODE_ENV === 'production') {
     })
   ])
 }
+
+// const devWebpackConfig = merge(baseWebpackConfig, {
+//   devServer: {
+//     // 在devserver中加入before函数
+//     before(app) {
+//       app.get('/api/banner', (req, res, next) => {
+//         res.json(goodListData)
+//       })
+//     }
+//   },
+// })

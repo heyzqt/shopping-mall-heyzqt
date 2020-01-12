@@ -1,13 +1,13 @@
 <template>
-  <div>
+  <div class="app-container">
 
     <!-- title bar -->
     <mt-header fixed title="新闻页练手项目"></mt-header>
 
     <!-- main content -->
-    <div class="container">
-      <router-view></router-view>
-    </div>
+    <transition>
+        <router-view :banner="bannerList" class="container"></router-view>
+    </transition>
 
     <!-- bottom bar -->
     <mt-tabbar class="bottom-bar">
@@ -40,9 +40,25 @@
 </template>
 <style lang="scss">
 @import "./css/public.css";
+.app-container {
+  overflow: hidden;
+}
+.v-enter {
+  transform: translateX(100%);
+}
+.v-leave-to {
+  opacity: 0;
+  transform: translateX(-100%);
+  position: absolute;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: all .5s ease;
+}
 </style>
 <script>
-
+import axios from 'axios'
 var homeIndicator = ['home', 'member', 'cart', 'search'];
 export default {
   data() {
@@ -59,7 +75,8 @@ export default {
       carturl: null,
       search: require('./assets/icon-search.png'),
       searchActive: require('./assets/icon-search-active.png'),
-      searchurl: null
+      searchurl: null,
+      bannerList: null
     }
   },
   created(){
@@ -67,7 +84,7 @@ export default {
     this.memberurl = this.member;
     this.carturl = this.cart;
     this.searchurl = this.search;
-    // this.chooseIndicator('home');
+    this.getData();
   },
   methods: {
     chooseIndicator(id) {
@@ -99,6 +116,15 @@ export default {
             break               
         }
       });
+    },
+    getData() {
+      //获取banner的数据
+      axios
+      .get('./src/static/banner.json')
+      .then(resp => {
+        console.log(resp.data.message);
+        this.bannerList = resp.data.message;
+        })
     }
   }
 }

@@ -9,6 +9,7 @@ Vue.use(VueRouter);
 
 export default new VueRouter({
     routes: [
+        { path: '/', redirect: '/home'},
         { path: '/home', component: THome},
         { path: '/member', component: TMember},
         { path: '/cart', component: TCart},
