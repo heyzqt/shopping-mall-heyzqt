@@ -82,7 +82,7 @@ import Vue from "vue";
 import axios from 'axios'
 var homeIndicator = ['home', 'member', 'cart', 'search'];
 
-// axios.defaults.baseURL = 'http://localhost:8080/';
+axios.defaults.baseURL = 'http://localhost:8080/';
 Vue.prototype.axios = axios;
 
 export default {
