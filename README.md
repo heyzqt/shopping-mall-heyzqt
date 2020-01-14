@@ -68,6 +68,22 @@
         + 设置底部栏absolute
         + wrapper设置padding-bottom数值为底部栏的高度的数值
 
+## 2020.1.14 知识点
++ 关于前端时间格式
+    + 前端常用的时间是时间对象格式，比如2018-02-06T11:59:22+08:00，而不是时间戳
+    + 使用moment.js转换时间，时间的格式需要时间对象格式才行，如上，否则会报错无法转换时间格式数据
++ moment.js转换时间格式的使用
+    + step 1：安装moment并引入
+        + npm install moment -D
+        + import moment from 'moment'
+    + step 2: 注册全局filter
+        + Vue.filter('dateFormat', function(dataStr, pattern = 'YYYY-MM-DD HH:mm:ss'){
+            return moment(dataStr).format(pattern);
+        })
+    + step 3: 在时间的插值表达式中添加filter
+        + {{item.time | dateFormat}}
+        + {{item.time | dateFormat('YYYY-MM-DD')}}
+
 
 
 

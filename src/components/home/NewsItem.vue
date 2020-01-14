@@ -4,7 +4,7 @@
             <img class="news-img" :src="$attrs.item.url" alt="" />
             <div class="content">
                 <div class="title">{{$attrs.item.title}}</div>
-                <div class="info"><span>发表时间：{{$attrs.item.time}}</span><span>点击：{{$attrs.item.count}}次</span></div>
+                <div class="info"><span>发表时间：{{$attrs.item.time | dateFormat}}</span><span>点击：{{$attrs.item.count}}次</span></div>
             </div>
         </div>
     </div>
@@ -26,6 +26,7 @@
 .info {
     display: flex;
     justify-content: space-between;
+    font-size: 12px;
 }
 .content {
     width: 100%;
