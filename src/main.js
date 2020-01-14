@@ -2,7 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./route";
 import VueResource from 'vue-resource';
-import { Header, Tabbar, TabItem } from "mint-ui";
+import { Header, Tabbar, TabItem, Button } from "mint-ui";
 import { Swipe, SwipeItem } from 'mint-ui';
 import "mint-ui/lib/style.css";
 import moment from 'moment';
@@ -12,6 +12,7 @@ Vue.component(Tabbar.name, Tabbar);
 Vue.component(TabItem.name, TabItem);
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
+Vue.component(Button.name, Button);
 
 Vue.use(VueResource);
 

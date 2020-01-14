@@ -4,10 +4,12 @@
             <div class="title">{{newsinfo.title}}</div>
             <div class="info"><span>发表时间：{{newsinfo.time | dateFormat('YYYY-MM-DD')}}</span><span>点击{{newsinfo.count}}次</span></div>
         </div>
-        <div v-html="newsinfo.content"></div>
+        <div class="news-content" v-html="newsinfo.content"></div>
+        <comments></comments>
     </div>
 </template>
 <script>
+import comments from '../subcomponents/comments'
 export default {
     data() {
         return {
@@ -34,6 +36,9 @@ export default {
                 }
             })
         }
+    },
+    components: {
+        comments
     }
 }
 </script>
@@ -42,5 +47,10 @@ export default {
     display: flex;
     justify-content: space-between;
     font-size: 14px;
+}
+.news-content {
+    color: #666;
+    font-size: 14px;
+    margin-top: 10px;
 }
 </style>
