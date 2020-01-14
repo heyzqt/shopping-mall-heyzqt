@@ -56,6 +56,20 @@
     + x轴，往右侧移动就是translateX()正数，往左侧移动就是translateX()负数
 + 把本地项目传到github上
 
+## 2020.1.13 知识点
++ 固定底部栏，且可滑动列表始终在底部栏之上滚动，不会超出的处理方法
+    + 情况一：底部栏固定在可视窗口的底部
+        + 设置wrapper的min-height为100%（兼容内容太少不能撑满一页的情况）
+        + 设置底部栏fixed
+        + wrapper设置padding-bottom数值为底部栏的高度的数值
+    + 情况二：底部栏固定在页面最底部
+        + 设置container为relative
+        + 设置container的min-height为100%
+        + 设置底部栏absolute
+        + wrapper设置padding-bottom数值为底部栏的高度的数值
+
+
+
 
 # 其他
 + mockjs, 模拟服务器返回的数据，供本地调试

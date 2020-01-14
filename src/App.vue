@@ -6,7 +6,7 @@
 
     <!-- main content -->
     <transition>
-        <router-view :banner="bannerList" class="container"></router-view>
+        <router-view :banner="bannerList" :newsList="newsList" class="container"></router-view>
     </transition>
 
     <!-- bottom bar -->
@@ -42,6 +42,7 @@
 @import "./css/public.scss";
 .app-container {
   overflow: hidden;
+  min-height: 100%;
 }
 
 // 右进左出
@@ -70,10 +71,20 @@
 .v-leave-active {
   transition: all .5s ease;
 }
+
+.bottom-bar {
+  position: fixed; //相对当前浏览器窗口固定在底部
+  bottom: 0;
+}
 </style>
 <script>
+import Vue from "vue";
 import axios from 'axios'
 var homeIndicator = ['home', 'member', 'cart', 'search'];
+
+// axios.defaults.baseURL = 'http://localhost:8080/';
+Vue.prototype.axios = axios;
+
 export default {
   data() {
     return {
@@ -90,7 +101,8 @@ export default {
       search: require('./assets/icon-search.png'),
       searchActive: require('./assets/icon-search-active.png'),
       searchurl: null,
-      bannerList: null
+      bannerList: null,
+      newsList: null
     }
   },
   created(){
@@ -133,12 +145,21 @@ export default {
     },
     getData() {
       //获取banner的数据
-      axios
+      this.axios
       .get('./src/static/banner.json')
       .then(resp => {
         console.log(resp.data.message);
         this.bannerList = resp.data.message;
-        })
+        });
+
+      //获取新闻数据
+      this.axios
+      .get('./src/static/news.json')
+      .then(resp => {
+        console.log('获取新闻数据:');
+        console.log(resp.data.news);
+        this.newsList = resp.data.news;
+      })
     }
   }
 }
