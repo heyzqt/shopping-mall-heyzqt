@@ -1,8 +1,8 @@
 <template>
     <div v-if="comments && comments.length > 0">
         <h3>发表评论</h3>
-        <textarea placeholder="请输入要评论的内容（最多吐槽120字）" maxlength="120"></textarea>
-        <mt-button type="primary" size="large">发表评论</mt-button>
+        <textarea placeholder="请输入要评论的内容（最多吐槽120字）" maxlength="120" v-model="commentData"></textarea>
+        <mt-button type="primary" size="large" @click="postComment()">发表评论</mt-button>
         <div class="comment-box" v-for="(item, index) in comments" :key="index">
             <div class="comment-title">第{{index + 1}}楼&nbsp;&nbsp;用户：{{item.username}}&nbsp;&nbsp;&nbsp;发表时间：{{item.addtime | dateFormat}}</div>
             <div class="comment-content">{{item.content == '' || item.content == 'undefined' ? '这个用户有点懒' : item.content}}</div>
@@ -16,7 +16,8 @@ export default {
     data() {
         return {
             pageIndex: 1, //默认加载第1页的数据
-            comments: []
+            comments: [],
+            commentData: ''
         }
     },
     created() {
@@ -50,6 +51,38 @@ export default {
                         console.log('加载更多评论数据失败');
                     }
                 })
+        },
+        postComment() {
+            if (this.commentData == '') {
+                alert('请输入评论内容');
+            } else {
+                // axios
+                // .post('提交的网址', {
+                //     "username": "张三",
+                //     "addtime": Date().now,
+                //     "content": this.commentData
+                // })
+                // .then(res => {
+                //     console.log("post comment success");
+                //     //手动将发送成功的内容添加到评论列表中
+                //     let comment = {
+                //         username: '张三',
+                //         addtime: Date().now,
+                //         content: this.commentData
+                //     }
+                //     this.comments.unshift(comment);
+                //     this.commentData = "";
+                // })
+                    console.log("post comment success");
+                    //手动将发送成功的内容添加到评论列表中
+                    let comment = {
+                        username: '张三',
+                        addtime: Date().now,
+                        content: this.commentData
+                    }
+                    this.comments.unshift(comment);
+                    this.commentData = "";
+            }
         }
     }
 }
