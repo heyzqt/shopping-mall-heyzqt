@@ -13,10 +13,10 @@
                 <img src="../images/image1.png" alt="" />
                 <div>新闻资讯</div>
             </router-link>
-            <div class="box">
+            <router-link class="box" to="/home/photos">
                 <img src="../images/image2.png" alt="" />
                 <div>图片分享</div>
-            </div>
+            </router-link>
             <div class="box">
                 <img src="../images/image3.png" alt="" />
                 <div>商品购买</div>
