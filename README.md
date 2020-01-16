@@ -100,6 +100,16 @@
             -webkit-line-clamp: 4; //line-clamp限制一个块元素显示的文本行数
             text-overflow: ellipsis; //用省略号隐藏溢出的文本
             overflow: hidden; //也需要添加，文本可能过长
+    + 在Android手机端测试网页
+        + step 1:
+            手机和电脑连接同一个wifi，查看当前电脑的ip地址
+        + step 2：
+            在package.json的scripts中复制一份dev脚本修改
+            + 在原脚本中添加port和当前的ip地址
+            "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+            "mobile": "cross-env NODE_ENV=development webpack-dev-server --open --port 3000 --hot --host 192.168.x.xx",
+        + step 3:
+            npm run mobile后，在手机端登录对应的地址即可
 
 
 
