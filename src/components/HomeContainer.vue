@@ -17,10 +17,10 @@
                 <img src="../images/image2.png" alt="" />
                 <div>图片分享</div>
             </router-link>
-            <div class="box">
+            <router-link  class="box" to="/home/goodlist">
                 <img src="../images/image3.png" alt="" />
                 <div>商品购买</div>
-            </div>
+            </router-link >
         </div>
         <div class="box-container">
             <div class="box">

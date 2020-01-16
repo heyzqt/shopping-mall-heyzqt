@@ -8,6 +8,7 @@ import NewsList from './components/home/NewsList';
 import NewsInfo from './components/home/NewsInfo';
 import PhotoList from './components/subcomponents/photos';
 import PhotoInfo from './components/subcomponents/photoinfo';
+import GoodsList from './components/goods/GoodList';
 
 Vue.use(VueRouter);
 
@@ -21,7 +22,8 @@ export default new VueRouter({
         { path: '/home/news', component: NewsList},
         { path: '/home/newsinfo/:id', component: NewsInfo},
         { path: '/home/photos', component: PhotoList},
-        { path: '/home/photoinfo/:id', component: PhotoInfo}
+        { path: '/home/photoinfo/:id', component: PhotoInfo},
+        { path: '/home/goodlist', component: GoodsList}
     ],
     linkActiveClass: 'router-link-active-heyzqt' //全局配置默认激活的class
 })

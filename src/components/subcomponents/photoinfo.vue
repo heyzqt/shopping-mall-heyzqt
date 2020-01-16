@@ -13,9 +13,9 @@
                     <img :src="item.msrc" alt="" class="thumbs-img" @click="openPreview()"/>
                 </li>
             </ul>
-            <dialog v-if="showImgDialog">
+            <!-- <dialog v-if="showImgDialog">
                 <vue-preview :slides="thumbs" @close="handleClose"></vue-preview>
-            </dialog>
+            </dialog> -->
         </div>
         <div>
             {{photo.content}}

@@ -11,7 +11,7 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper';
 import 'swiper/css/swiper.css';
 import MintUI from 'mint-ui';
 import VuePreview from 'vue-preview';
-import PhotoSwipe from './components/custom/PhotoView'
+// import PhotoSwipe from './components/custom/PhotoView'
 // import PhotoSwipe from 'photoswipe'
 // import PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default'
 // import 'photoswipe/dist/photoswipe.css'
@@ -25,7 +25,7 @@ import PhotoSwipe from './components/custom/PhotoView'
 // Vue.component(Button.name, Button);
 Vue.component(swiper.name, swiper);
 Vue.component(swiperSlide.name, swiperSlide);
-Vue.component(PhotoSwipe.name, PhotoSwipe);
+// Vue.component(PhotoSwipe.name, PhotoSwipe);
 
 Vue.use(VueResource);
 Vue.use(MintUI);
