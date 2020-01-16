@@ -91,6 +91,16 @@
             + 1.图片数据由服务器返回（图片数量不定，最多9张，最少1张）
             + 2.图片宽高一致
             + 3.每行最多只能放3个图片
+        + 暂时实现
+            + 使用float和设置固定宽高来实现
+    + 等高瀑布流的实现
+        + 多行文本超过高度时，用省略号省略多余文本
+            display: -webkit-box; //类似flex布局
+            -webkit-box-orient: vertical; //类似flex-direction，设置子元素的排列方向
+            -webkit-line-clamp: 4; //line-clamp限制一个块元素显示的文本行数
+            text-overflow: ellipsis; //用省略号隐藏溢出的文本
+            overflow: hidden; //也需要添加，文本可能过长
+
 
 
 
