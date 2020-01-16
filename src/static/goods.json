@@ -1,0 +1,76 @@
+{
+    "goods": [
+        {
+            "id": 1,
+            "title": "佳能（Canon）EOS 800D 单反相机 单反机身 单反套机 （EF-S 18-55mm f/4-5.6 IS STM 单反镜头）",
+            "url": "https://img1.360buyimg.com/n6/jfs/t2656/295/34058120/362134/d92995e5/56fc835dNe349b797.jpg",
+            "now_price": 899,
+            "ori_price": 999,
+            "remain": 100
+        },
+        {
+            "id": 2,
+            "title": "佳能（Canon） 买就送礼包佳能EOS 80D单反相机数码相机全新正品国行佳能80D套机 腾龙18-400mm 防抖长焦镜头",
+            "url": "https://img1.360buyimg.com/n6/jfs/t1/86044/25/10192/174904/5e16c340E3902b7a9/cc266dcb26f5c317.jpg",
+            "now_price": 1899,
+            "ori_price": 2000,
+            "remain": 23
+        },
+        {
+            "id": 3,
+            "title": "Canon/佳能 PowerShot SX540 HS小单反 数码相机高清 长焦照相机",
+            "url": "https://img.alicdn.com/bao/uploaded/i1/2237461608/O1CN01BpcMbw1NkVSPCBetZ_!!2237461608-0-pixelsss.jpg",
+            "now_price": 3000,
+            "ori_price": 3249,
+            "remain": 89
+        },
+        {
+            "id": 1,
+            "title": "佳能（Canon）EOS 800D 单反相机 单反机身 单反套机 （EF-S 18-55mm f/4-5.6 IS STM 单反镜头）",
+            "url": "https://img1.360buyimg.com/n6/jfs/t2656/295/34058120/362134/d92995e5/56fc835dNe349b797.jpg",
+            "now_price": 899,
+            "ori_price": 999,
+            "remain": 100
+        },
+        {
+            "id": 2,
+            "title": "佳能（Canon） 买就送礼包佳能EOS 80D单反相机数码相机全新正品国行佳能80D套机 腾龙18-400mm 防抖长焦镜头",
+            "url": "https://img1.360buyimg.com/n6/jfs/t1/86044/25/10192/174904/5e16c340E3902b7a9/cc266dcb26f5c317.jpg",
+            "now_price": 1899,
+            "ori_price": 2000,
+            "remain": 23
+        },
+        {
+            "id": 3,
+            "title": "Canon/佳能 PowerShot SX540 HS小单反 数码相机高清 长焦照相机",
+            "url": "https://img.alicdn.com/bao/uploaded/i1/2237461608/O1CN01BpcMbw1NkVSPCBetZ_!!2237461608-0-pixelsss.jpg",
+            "now_price": 3000,
+            "ori_price": 3249,
+            "remain": 89
+        },
+        {
+            "id": 1,
+            "title": "佳能（Canon）EOS 800D 单反相机 单反机身 单反套机 （EF-S 18-55mm f/4-5.6 IS STM 单反镜头）",
+            "url": "https://img1.360buyimg.com/n6/jfs/t2656/295/34058120/362134/d92995e5/56fc835dNe349b797.jpg",
+            "now_price": 899,
+            "ori_price": 999,
+            "remain": 100
+        },
+        {
+            "id": 2,
+            "title": "佳能（Canon） 买就送礼包佳能EOS 80D单反相机数码相机全新正品国行佳能80D套机 腾龙18-400mm 防抖长焦镜头",
+            "url": "https://img1.360buyimg.com/n6/jfs/t1/86044/25/10192/174904/5e16c340E3902b7a9/cc266dcb26f5c317.jpg",
+            "now_price": 1899,
+            "ori_price": 2000,
+            "remain": 23
+        },
+        {
+            "id": 3,
+            "title": "Canon/佳能 PowerShot SX540 HS小单反 数码相机高清 长焦照相机",
+            "url": "https://img.alicdn.com/bao/uploaded/i1/2237461608/O1CN01BpcMbw1NkVSPCBetZ_!!2237461608-0-pixelsss.jpg",
+            "now_price": 3000,
+            "ori_price": 3249,
+            "remain": 89
+        }
+    ]
+}
