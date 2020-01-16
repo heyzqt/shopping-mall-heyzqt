@@ -83,7 +83,14 @@
     + step 3: 在时间的插值表达式中添加filter
         + {{item.time | dateFormat}}
         + {{item.time | dateFormat('YYYY-MM-DD')}}
-
+## 2020.1.16 知识点
+    + Swiper轮播控件
+    + PhotoSwipe缩略图预览控件
+    + 9宫格图片的实现
+        + 需求：
+            + 1.图片数据由服务器返回（图片数量不定，最多9张，最少1张）
+            + 2.图片宽高一致
+            + 3.每行最多只能放3个图片
 
 
 

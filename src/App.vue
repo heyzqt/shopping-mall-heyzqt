@@ -38,51 +38,10 @@
     </mt-tabbar>
   </div>
 </template>
-<style lang="scss">
-@import "./css/public.scss";
-.app-container {
-  overflow: hidden;
-  min-height: 100%;
-}
-
-// 右进左出
-.v-enter {
-  opacity: 0;
-  transform: translateX(100%);
-}
-.v-leave-to {
-  opacity: 0;
-  transform: translateX(-100%);
-  position: absolute;
-}
-
-// 左进右出
-// .v-enter {
-//   opacity: 0;
-//   transform: translateX(-100%);
-// }
-// .v-leave-to {
-//   opacity: 0;
-//   transform: translateX(100%);
-//   position: absolute;
-// }
-
-.v-enter-active,
-.v-leave-active {
-  transition: all .5s ease;
-}
-
-.bottom-bar {
-  position: fixed; //相对当前浏览器窗口固定在底部
-  bottom: 0;
-}
-</style>
 <script>
 import Vue from "vue";
 import axios from 'axios'
 var homeIndicator = ['home', 'member', 'cart', 'search'];
-
-axios.defaults.baseURL = 'http://localhost:8080/';
 Vue.prototype.axios = axios;
 
 export default {
@@ -164,3 +123,50 @@ export default {
   }
 }
 </script>
+<style lang="scss" >
+@import "./css/public.scss";
+
+.mint-header {
+
+  &.is-fixed {
+    z-index: 99;
+  }
+}
+
+.app-container {
+  overflow: hidden;
+  min-height: 100%;
+}
+
+// 右进左出
+.v-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+.v-leave-to {
+  opacity: 0;
+  transform: translateX(-100%);
+  position: absolute;
+}
+
+// 左进右出
+// .v-enter {
+//   opacity: 0;
+//   transform: translateX(-100%);
+// }
+// .v-leave-to {
+//   opacity: 0;
+//   transform: translateX(100%);
+//   position: absolute;
+// }
+
+.v-enter-active,
+.v-leave-active {
+  transition: all .5s ease;
+}
+
+.bottom-bar {
+  position: fixed; //相对当前浏览器窗口固定在底部
+  bottom: 0;
+}
+</style>

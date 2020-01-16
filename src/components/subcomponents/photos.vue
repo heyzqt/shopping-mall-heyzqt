@@ -6,7 +6,7 @@
         v-for="(item, index) in titles"
         :key="item.id"
         @click.native="handleClickSlide(index)"
-        :class="{'swiper-slide-active': nowIndex == index}"
+        :class="{'slide-active': nowIndex == index}"
         >{{ item.title }}</swiper-slide
       >
     </swiper>
@@ -14,8 +14,14 @@
       <swiper-slide v-for="(item) in titles" :key="item.id">slide {{item.id}}</swiper-slide>
     </swiper> -->
     <ul class="photolist">
-      <li v-for="(item, index) in list" :key="index">
-        <img v-lazy="item" />
+      <li class="photo-box" v-for="(item, index) in photos" :key="index">
+        <router-link :to="'/home/photoinfo/' + item.id">
+            <img v-lazy="item.url">
+            <div class="info">
+              <div class="info-title">{{item.title}}</div>
+              <div class="info-content">{{item.content}}</div>
+            </div>
+        </router-link>
       </li>
     </ul>
   </div>
@@ -68,40 +74,7 @@ export default {
           title: "娱乐"
         }
       ],
-      list: [
-        "https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3209370120,2008812818&fm=26&gp=0.jpg",
-        "https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3437217665,1564280326&fm=26&gp=0.jpg",
-        "https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3173584241,3533290860&fm=26&gp=0.jpg",
-        "https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3922344982,423380743&fm=26&gp=0.jpg",
-        "https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2853553659,1775735885&fm=26&gp=0.jpg",
-        "https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2462146637,4274174245&fm=26&gp=0.jpg",
-        "http://img1.gtimg.com/rushidao/pics/hv1/20/108/1744/113431160.jpg",
-        "http://www.littleducks.cn/uploads/allimg/1208/1688-120Q40U258.jpg",
-        "https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3209370120,2008812818&fm=26&gp=0.jpg",
-        "https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3437217665,1564280326&fm=26&gp=0.jpg",
-        "https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3173584241,3533290860&fm=26&gp=0.jpg",
-        "https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3922344982,423380743&fm=26&gp=0.jpg",
-        "https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2853553659,1775735885&fm=26&gp=0.jpg",
-        "https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2462146637,4274174245&fm=26&gp=0.jpg",
-        "http://img1.gtimg.com/rushidao/pics/hv1/20/108/1744/113431160.jpg",
-        "http://www.littleducks.cn/uploads/allimg/1208/1688-120Q40U258.jpg",
-        "https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3209370120,2008812818&fm=26&gp=0.jpg",
-        "https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3437217665,1564280326&fm=26&gp=0.jpg",
-        "https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3173584241,3533290860&fm=26&gp=0.jpg",
-        "https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3922344982,423380743&fm=26&gp=0.jpg",
-        "https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2853553659,1775735885&fm=26&gp=0.jpg",
-        "https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2462146637,4274174245&fm=26&gp=0.jpg",
-        "http://img1.gtimg.com/rushidao/pics/hv1/20/108/1744/113431160.jpg",
-        "http://www.littleducks.cn/uploads/allimg/1208/1688-120Q40U258.jpg",
-        "https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3209370120,2008812818&fm=26&gp=0.jpg",
-        "https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3437217665,1564280326&fm=26&gp=0.jpg",
-        "https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3173584241,3533290860&fm=26&gp=0.jpg",
-        "https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3922344982,423380743&fm=26&gp=0.jpg",
-        "https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2853553659,1775735885&fm=26&gp=0.jpg",
-        "https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2462146637,4274174245&fm=26&gp=0.jpg",
-        "http://img1.gtimg.com/rushidao/pics/hv1/20/108/1744/113431160.jpg",
-        "http://www.littleducks.cn/uploads/allimg/1208/1688-120Q40U258.jpg"
-      ],
+      photos: [],
       swiperOption: {
         // some swiper options/callbacks
         // 所有的参数同 swiper 官方 api 参数
@@ -144,11 +117,20 @@ export default {
         //         console.log('current read index = ' + realIndex);
         //     }
         // }
-      },
-      swiperOption1: {
-        slidesPerView: 1
       }
     };
+  },
+  created() {
+    this.axios
+        .get('./src/static/photos.json')
+        .then(resp => {
+          console.log(resp);
+          if (resp.status == 200) {
+             this.photos = resp.data.photos;
+          }else {
+            alert('获取数据失败');
+          }
+        })
   },
   computed: {
     swiper() {
@@ -160,9 +142,6 @@ export default {
       this.nowIndex = index;
       console.log("current read index = " + index);
       this.swiper.slideTo(index, 500, false);
-    },
-    hello() {
-      alert("hello");
     }
   }
 };
@@ -172,7 +151,7 @@ export default {
   width: 54px;
   text-align: center;
 }
-.swiper-slide-active {
+.slide-active {
   color: rgb(14, 170, 197);
 }
 img[lazy="loading"] {
@@ -187,5 +166,17 @@ img {
   background: gray;
   padding-left: 10px;
   padding-right: 10px;
+}
+.photo-box {
+  position: relative;
+
+  .info {
+    position: absolute;
+    bottom: 0;
+    background: rgba(130,100,100,0.2);
+    font-size: 10px;
+    color: #000;
+    max-height: 90px;
+  }
 }
 </style>
