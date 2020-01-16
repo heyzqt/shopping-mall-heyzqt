@@ -12,6 +12,7 @@
                     </div>
                 </div>
             </div>
+            <mt-button type="danger" size="large" @click="getMore()">加载更多</mt-button>
         </div>
     </div>
 </template>
@@ -33,6 +34,18 @@ export default {
                     if (resp.status == 200) {
                         console.log(resp);
                         this.goods = resp.data.goods;
+                    } else {
+                        alert('加载数据失败');
+                    }
+                })
+        },
+        getMore() {
+            this.axios
+                .get('./src/static/goods.json')
+                .then(resp => {
+                    if (resp.status == 200) {
+                        console.log(resp);
+                        this.goods = this.goods.concat(resp.data.goods);
                     } else {
                         alert('加载数据失败');
                     }
