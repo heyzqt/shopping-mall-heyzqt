@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="goods-list" v-if="goods.length > 0">
-            <div class="goods-item" v-for="(item, index) in goods" :key="index">
+            <div class="goods-item" v-for="(item, index) in goods" :key="index" @click="goDetail(item.id)">
                 <img :src="item.url" alt="">
                 <h1 class="title">{{item.title}}</h1>
                 <div class="price">
@@ -50,6 +50,21 @@ export default {
                         alert('加载数据失败');
                     }
                 })
+        },
+        goDetail(id) {
+            //方式一：直接使用字符串
+            // this.$router.push('/home/goodsinfo/' + id);
+
+            //方式二：传递1个对象，包含path
+            // this.$router.push({path: '/home/goodsinfo/' + id});
+
+            //方式三：使用name属性和params
+            this.$router.push({
+                name: 'goodsinfo',
+                params: {
+                    id
+                }
+            });
         }
     }    
 }

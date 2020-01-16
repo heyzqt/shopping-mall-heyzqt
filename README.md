@@ -110,6 +110,20 @@
             "mobile": "cross-env NODE_ENV=development webpack-dev-server --open --port 3000 --hot --host 192.168.x.xx",
         + step 3:
             npm run mobile后，在手机端登录对应的地址即可
+    + 网页中的2种跳转方式
+        + 方式一：a标签跳转
+        + 方式二：使用window.location.href的形式的叫编程式跳转，即使用js代码进行跳转
+    + 使用编程式导航，router.push的三种跳转方式
+        + 方式一： router.push('xxx');
+        + 方式二： router.push({path: 'xxx'});
+        + 方式三： router.push(
+            name: xxx,
+            params: {
+                id: 100
+            }
+        );
+        + 方式四： 带查询参数的方式
+
 
 
 
