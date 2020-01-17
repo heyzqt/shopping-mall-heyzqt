@@ -1,11 +1,7 @@
 <template>
     <div>
         <!-- 轮播图 -->
-        <mt-swipe :auto="4000">
-            <mt-swipe-item v-for="item in $attrs.banner" :key="item.url">
-                <img :src="item.img" alt="">
-            </mt-swipe-item>
-        </mt-swipe>
+        <swiper :list="$attrs.banner" :isfull="true"></swiper>
 
         <!-- 九宫格 -->
         <div class="box-container">
@@ -38,15 +34,15 @@
         </div>
     </div>
 </template>
+<script>
+import swiper from './custom/swiper'
+export default {
+    components: {
+        swiper
+    }
+}
+</script>
 <style lang="scss" scoped>
-.mint-swipe {
-    height: 200px;
-}
-
-img {
-    width: 100%;
-    height: 100%;
-}
 
 .box-container {
     display: flex;
