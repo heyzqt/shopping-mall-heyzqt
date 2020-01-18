@@ -40,10 +40,10 @@
       <div class="good-parameter">商品货号：{{ goodsinfo.goods_no }}</div>
       <div class="good-parameter">库存情况：{{ goodsinfo.stock }}</div>
       <div class="line"></div>
-      <mt-button type="primary" size="large" plain class="btn-goods-info"
+      <mt-button type="primary" size="large" plain class="btn-goods-info" @click="getDescripton(id)"
           >图文介绍</mt-button
         >
-        <mt-button type="danger" size="large" plain class="btn-goods-info"
+        <mt-button type="danger" size="large" plain class="btn-goods-info" @click="getComments(id)"
           >商品评论</mt-button
         >
     </div>
@@ -167,6 +167,12 @@ export default {
     },
     addCart() {
       alert("加入购物车");
+    },
+    getDescripton(id) {
+        this.$router.push({name: "goodsdes", params: {id}});
+    },
+    getComments(id) {
+        this.$router.push({name: 'goodscomments', params: {id}});
     }
   },
   components: {

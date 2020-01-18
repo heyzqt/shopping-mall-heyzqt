@@ -136,6 +136,7 @@ export default {
 .app-container {
   overflow: hidden;
   min-height: 100%;
+  padding-bottom: 55px;
 }
 
 // 右进左出
