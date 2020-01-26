@@ -58,3 +58,14 @@ a {
   background-color: #ccc;
   margin: 5px 0px 12px 0px;
 }
+
+.ball {
+  width: 15px;
+  height: 15px;
+  background-color: red;
+  border-radius: 100%;
+  position: absolute;
+  z-index: 99;
+  top: 389px;
+  left: 122px;
+}

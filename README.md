@@ -132,7 +132,56 @@
             + 不设置width
             + 设置width: auto
 
+## 2020.1.18 知识点
+    + click添加多个点击事件的方法
+    + transition标签动画的几个事件 todo
 
+## 2020.1.25 知识点
+    + 添加transition动画，小球一直不显示的bug
+        + 知识点：transition动画在进行时有6个动画
+            + v-enter/v-enter-active/v-enter-to
+            + v-leave/v-leave-active/v-leave-to
+            + 以上默认动画类中有一些默认的样式如下：
+            + v-enter
+                opacity: 0;
+            + v-enter-to
+                opacity: 1;
+            + v-leave
+                opacity: 1;
+            + v-leave-to
+                opacity: 0;
+            
+            如下： 
+            .v-leave-to {
+                opacity: 0;
+                transform: translateX(-100%);
+                position: absolute;
+            }
+
+            .v-enter-active, .v-leave-active {
+                transition: all .5s ease;
+            }
+        + 问题原因：在小球移动时，小球的opacity属性一直被v-leave-to设置为0，所以小球一直不显示
+        + 解决办法：
+            + 办法一：在钩子函数beforeEnter和enter中，设置opacity为1
+            + 办法二：设置transition自带的类的opacity为1
+                .v-enter,
+                .v-leave-to {
+                    opacity: 1;
+                }
+    + ref和refs的使用
+        + 干嘛用？在vue中用来操作dom的关键字
+        + ref用来注册子控件，注册后$refs就可以拿到注册后的子控件并操作
+        + refs拿到子组件后，还能通过子组件对象使用子组件中的data数据或者methods方法
+
+## 2020.1.26 知识点
+    + 子组件和父组件之间进行通信
+        + 父组件可通过props传值给子组件
+        + 父组件也可直接通过:value的方式传递给子组件数据，子组件使用$attrs取值
+        + 子组件可通过$emit调用父组件的自定义方法
+            + 父组件v-on / @ method , 比如@get_num定义别名
+            + @get_num="getNumberOfProducts"定义调用父组件中的方法名
+            + 子组件中，this.$emit('get_num', val);第1个参数是方法名，第二个参数是需要传过去的值
 
 
 # 其他
