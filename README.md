@@ -134,7 +134,18 @@
 
 ## 2020.1.18 知识点
     + click添加多个点击事件的方法
-    + transition标签动画的几个事件 todo
+    + transition标签动画的几个事件
+        + v-enter、v-enter-active、v-enter-to是组件在从隐藏到显示时经历的3个状态
+            + v-enter在元素被插入的下一帧就被移除
+            + v-enter-active 在元素过渡动画完成之后被移除
+            + v-enter-to 元素插入后的下一帧生效（同时v-enter被移除），在元素过渡动画完成之后被移除，生命周期跟v-enter-active几乎一致
+        + v-leave、v-leave-active、v-leave-to是组件从显示到隐藏经历的3个状态
+            + v-leave 定义元素的离开的开始状态，在离开过渡触发时立刻生效，下一帧被移除
+            + v-leave-active 定义离开过渡生效时的状态，在整个过渡的阶段中应用，在过渡动画完成后移除
+            + v-leave-to 定义离开过渡是的结束状态，在离开过渡触发时的下一帧开始生效（同时v-leave被删除），在过渡动画完成后移除。
+        + 案例：分析自定义的fade动画（opacity的变化）
+            + 组件从显示到隐藏，状态分别从fade-leave(opacity:1)、fade-leave-active(transition: opacity .5s)、fade-leave-to(opacity: 0)
+            + 组件从隐藏到显示，状态分别从fade-enter(opacity:0)、fade-enter-active(transition: opacity .5s)、fade-enter-to(opacity: 1)
 
 ## 2020.1.25 知识点
     + 添加transition动画，小球一直不显示的bug
