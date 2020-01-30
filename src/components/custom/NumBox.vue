@@ -7,11 +7,17 @@
 </template>
 <script>
 export default {
-    props: ['max'],
+    props: ['max', 'initial'],
     data() {
         return {
             count: 1
         }
+    },
+    created() {
+      //初始化count的值
+      if (this.initial) {
+        this.count = this.initial;
+      }
     },
     methods: {
         subNum() {

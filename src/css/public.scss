@@ -36,8 +36,8 @@ a {
 }
 
 .router-link-active-heyzqt {
-  color: orange !important;
-  background-color: pink;
+  // color: orange !important;
+  // background-color: pink;
 }
 
 .container {
@@ -68,4 +68,61 @@ a {
   z-index: 99;
   top: 389px;
   left: 122px;
+}
+
+.cart-box {
+  position: relative;
+
+  .cart-num {
+    position: absolute;
+    left: 45px;
+    top: 4px;
+  }
+}
+
+.goods-container {
+  background-color: #eeecef;
+
+  .card-box {
+    background-color: #fff;
+    margin: 10px 10px 10px 10px;
+    box-shadow: 4px 4px 8px #ccc;
+    padding: 10px;
+
+    .remind {
+      font-weight: bold;
+      font-size: 16px;
+      color: red;
+    }
+
+    .line {
+      height: 1px;
+      background-color: #ccc;
+      margin: 5px 0px 12px 0px;
+    }
+  }
+
+  .good-title {
+    font-size: 16px;
+  }
+
+  .good-buy-box {
+    font-size: 14px;
+
+    .buy-num {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .good-parameter {
+    color: #888;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .btn-goods-info {
+      margin-top: 10px;
+      font-size: 14px;
+  }
 }

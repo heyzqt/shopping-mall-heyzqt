@@ -2,7 +2,11 @@
   <div class="app-container">
 
     <!-- title bar -->
-    <mt-header fixed title="新闻页练手项目"></mt-header>
+    <mt-header fixed title="新闻页练手项目">
+      <span slot="left" @click="goBack()" v-show="flag">
+        <mt-button icon="back">back</mt-button>
+      </span>
+    </mt-header>
 
     <!-- main content -->
     <transition>
@@ -24,7 +28,8 @@
         </mt-tab-item>
       </router-link>
       <router-link to="/cart" class="tab-item" @click.native="chooseIndicator('cart')">
-        <mt-tab-item>
+        <mt-tab-item class="cart-box">
+          <mt-badge type="error" size="small" class="cart-num">{{this.$store.getters.getAllCartCount}}</mt-badge>
           <img id="cart" slot="icon" :src="carturl" />
           购物车
         </mt-tab-item>
@@ -61,7 +66,8 @@ export default {
       searchActive: require('./assets/icon-search-active.png'),
       searchurl: null,
       bannerList: null,
-      newsList: null
+      newsList: null,
+      flag: false
     }
   },
   created(){
@@ -69,7 +75,13 @@ export default {
     this.memberurl = this.member;
     this.carturl = this.cart;
     this.searchurl = this.search;
+    this.flag = !(this.$route.path === '/home')
     this.getData();
+    localStorage.a = '111';
+    localStorage['b'] = '222';
+    localStorage.setItem('c', JSON.stringify({id: 2, name: 'aaa'}));
+
+    console.log('local storage 读取数据', localStorage.a, ', ', localStorage['b'], localStorage.getItem('aaa'));
   },
   methods: {
     chooseIndicator(id) {
@@ -119,6 +131,16 @@ export default {
         console.log(resp.data.news);
         this.newsList = resp.data.news;
       })
+    },
+    goBack() {
+      console.log('go');
+      this.$router.go(-1);
+    }
+  },
+  watch: {
+    '$route.path'(newval) {
+      console.log('route path: ', newval);
+      this.flag = !(newval === '/home');
     }
   }
 }

@@ -11,6 +11,7 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper';
 import 'swiper/css/swiper.css';
 import MintUI from 'mint-ui';
 import VuePreview from 'vue-preview';
+import Vuex from 'vuex';
 // import PhotoSwipe from './components/custom/PhotoView'
 // import PhotoSwipe from 'photoswipe'
 // import PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default'
@@ -30,6 +31,7 @@ Vue.component(swiperSlide.name, swiperSlide);
 Vue.use(VueResource);
 Vue.use(MintUI);
 Vue.use(VuePreview);
+Vue.use(Vuex);
 Vue.prototype.axios=axios;
 Vue.use(VuePreview, {
   mainClass: 'pswp--minimal--dark',
@@ -47,6 +49,84 @@ Vue.filter('dateFormat', function(dateStr, pattern = 'YYYY-MM-DD HH:mm:ss'){
   return moment(dateStr).format(pattern);
 });
 
+//每次初始化时先从数据库中取出cart的值
+var cart = JSON.parse(localStorage.getItem('cart')) || [];
+console.log('初始化cart：', cart);
+
+const store = new Vuex.Store({
+  state: {
+    cart: cart
+    //每个对象包含的信息
+    //id：商品id  count：购买的数量  price: 商品单价 selected: true
+  },
+  mutations: {
+    addToCart(state, goodsinfo) {
+      var flag = false;
+
+      //添加的商品id一致，直接添加数量
+      state.cart.some(item => {
+        if (item.id == goodsinfo.id) {
+          item.count += parseInt(goodsinfo.count);
+          flag = true;
+          return true;
+        }
+      })
+
+      if (!flag) {
+        //添加的商品id不一致，添加对象
+        state.cart.push(goodsinfo);
+      }
+
+      //将当前购物车数据保存到local storage中
+      localStorage.setItem('cart', JSON.stringify(state.cart));
+    },
+    updateGoods(state, goodsinfo){
+      console.log('update Goodes');
+      state.cart.some(item => {
+        if (item.id == goodsinfo.id) {
+          item.count = goodsinfo.count;
+          return true;
+        }
+      })
+      localStorage.setItem('cart', JSON.stringify(state.cart));
+    },
+    deleteGoods(state, id) {
+      for (let index = 0; index < state.cart.length; index++) {
+        if (state.cart[index].id == id) {
+          state.cart.splice(index, 1);
+          break;
+        }
+      }
+
+      localStorage.setItem('cart', JSON.stringify(state.cart));
+    },
+    updateSelectedState(state, obj) {
+      state.cart.forEach(item => {
+        if (item.id == obj.id) {
+          item.selected = obj.selected;
+        }
+      })
+      localStorage.setItem('cart', JSON.stringify(state.cart));
+    }
+  },
+  getters: {
+    getAllCartCount(state) {
+      var sum = 0;
+      state.cart.forEach(item => {
+        sum += item.count;
+      })
+      return sum;
+    },
+    getSelectedState(state) {
+      let obj = {};
+      state.cart.forEach(item => {
+        obj[item.id] = item.selected;
+      })
+      return obj;
+    }
+  }
+})
+
 new Vue({
   el: "#app",
   router,
@@ -54,5 +134,6 @@ new Vue({
   components: {
     swiper,
     swiperSlide
-  }
+  },
+  store
 });

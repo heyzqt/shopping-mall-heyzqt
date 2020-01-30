@@ -60,53 +60,6 @@
   </div>
 </template>
 <style lang="scss">
-.goods-container {
-  background-color: #eeecef;
-
-  .card-box {
-    background-color: #fff;
-    margin: 10px 10px 10px 10px;
-    box-shadow: 4px 4px 8px #ccc;
-    padding: 10px;
-
-    .remind {
-      font-weight: bold;
-      font-size: 16px;
-      color: red;
-    }
-
-    .line {
-      height: 1px;
-      background-color: #ccc;
-      margin: 5px 0px 12px 0px;
-    }
-  }
-
-  .good-title {
-    font-size: 16px;
-  }
-
-  .good-buy-box {
-    font-size: 14px;
-
-    .buy-num {
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-  }
-
-  .good-parameter {
-    color: #888;
-    font-size: 14px;
-    line-height: 20px;
-  }
-
-  .btn-goods-info {
-      margin-top: 10px;
-      font-size: 14px;
-  }
-}
-
 .v-enter,
 .v-leave-to {
   opacity: 1;
@@ -144,6 +97,17 @@ export default {
     },
     addCart() {
       console.log("加入购物车");
+      // id：商品id  count：购买的数量  price: 商品单价 selected: true
+      let obj = {
+        id: this.id,
+        count: this.count,
+        price: this.goodsinfo.sell_price,
+        title: this.goodsinfo.title,
+        url: this.goodsinfo.banner[0].img,
+        selected: false,
+        max: this.goodsinfo.stock,
+      }
+      this.$store.commit('addToCart', obj);
     },
     getDescripton(id) {
         this.$router.push({name: "goodsdes", params: {id}});

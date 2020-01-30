@@ -194,6 +194,83 @@
             + @get_num="getNumberOfProducts"定义调用父组件中的方法名
             + 子组件中，this.$emit('get_num', val);第1个参数是方法名，第二个参数是需要传过去的值
 
+## 2020.1.28 知识点
+    + 分析如何实现购物车数据实时变化
+        + 使用vuex全局缓存数据，使用cart缓存购物车中商品的数据，mutations添加到购物车方法addToCar，getters获取最新购物车总数量
+        + step 1: 购物车右上角徽章显示购物车总数量
+        + step 2: 点击加入购物车按钮时，购物车数据变化
+    + local storage 在浏览器本地持久化保存数据
+        + 保存数据
+            + localStorage.a = '111';
+            + localStorage['b'] = '222';
+            + localStorage.setItem('c', JSON.stringify({id: 2, name: 'aaa'}));
+        + 读取数据
+            + localStorage.a
+            + localStorage['b']
+            + localStorage.getItem('c')
+        + 删除数据
+            + localStorage.removeItem('key');
+        + 清空数据
+            + localStorage.clear()
+
+## 2020.1.29 知识点
+    + Array的map方法
+        + 用法：处理一个数组后，再返回一个新数组
+        + ex:
+            let array = [1, 2, 3];
+            array.map(x => x.toString());
+            输出结果：["1", "2", "3"]
+    + Array删除某个元素有哪些方法
+        let numbers = [1, 2, 3];
+        + 方法一： 使用splice(index, howmany, items...)，splice可以添加或删除数组里的元素，注意splice是直接操作原数组
+            + 简单一维数组
+                + numbers.splice(1, 1);
+                + 可以封装成一个deleteItem()方法
+                    + deleteItem(list, num){
+                        list.splice(list.indexOf(num), 1);
+                    }
+            + 包含键值对的数组
+                + let array = [
+                    {
+                        "id": "1",
+                        "name": "zhangsan"
+                    },
+                    {
+                        "id": "2",
+                        "name": "lisi"
+                    }
+                ]
+                deleteItem(id, list){
+                    for (let index in list) {
+                        if (list[index].id === id) {
+                            list.splice(index, 1);
+                        }
+                    }
+                }
+        + 方法二： 使用delete关键字，但是删除元素位置会保留，值为undefined，同样也是在原数组上直接操作，delete还可以直接删除对象的属性值
+            + ex：
+                delete numbers[0]
+                输出结果：[empty, 2, 3]
+                    
+    + Array的some方法
+        + some方法依次检测元素中的每一个元素，满足条件则返回true，剩余的元素不会再执行
+        + array.some(item => {
+            if (item.id === '2') {
+                item.name = 'wangwu';
+                return true;
+            }
+        })
+    + v-model双向数据绑定，是不能改变store中的数据的，但是可以改变data中定义的boolean变量的值，可以通过调用另外的方法来修改
+    + router.go方法
+        + 往往与router.push()、router.replace()来进行对比
+        + router.push()
+            + 跳转到某个子页面，并在history中添加一条记录
+        + router.replace()
+            + 替换当前页面，与push区别是不会在history中添加记录
+        + router.go()
+            + 根据history记录，router.go(-1)跳转到上一个页面，router.go(1)跳转到下一个界面，router.go(n)            
+
+
 
 # 其他
 + mockjs, 模拟服务器返回的数据，供本地调试
