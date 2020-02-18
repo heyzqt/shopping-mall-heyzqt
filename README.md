@@ -268,7 +268,24 @@
         + router.replace()
             + 替换当前页面，与push区别是不会在history中添加记录
         + router.go()
-            + 根据history记录，router.go(-1)跳转到上一个页面，router.go(1)跳转到下一个界面，router.go(n)            
+            + 根据history记录，router.go(-1)跳转到上一个页面，router.go(1)跳转到下一个界面，router.go(n)     
+
+## 2020.1.30 知识点
+    + 将项目托管到Apache并启用
+        + 使用webpack命令打包网页，打包文件bundle.js和index.html
+        + 放置到phpStudy网站根目录下，重新打开即可使用
+        + 从浏览器的Network中可以查看到bundle.js的大小Size
+            + 开启Apache的gzip压缩可以有效的压缩bundle.js的大小
+                + step 1: 打开apache的配置文件httpd.conf
+                + step 2: 大概105行，找到以下2行并删除其注释
+                #LoadModule deflate_module modules/mod_deflate.so
+                #LoadModule headers_module modules/mod_headers.so
+                + step 3: 在httpd.conf文件末尾添加以下内容即可
+                    <IfModule deflate_module>
+                        # 像一个开关，告诉apache对传输到浏览器的内容进行压缩
+                        SetOutputFilter DEFLATE
+                        DeflateCompressionLevel 9
+                    </IfModule>
 
 
 
